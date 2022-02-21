@@ -27,7 +27,8 @@ function loadConfig(schema: ObjectSchema, data: any) {
     // host: envVars.HOST || null,
     port: envVars.PORT || 3032,
     env: envVars.NODE_ENV,
-    // jwt_secret_key: envVars.JWT_SECRET_KEY,
+    jwt_secret_key: envVars.JWT_SECRET,
+    jwt_expires: envVars.JWT_EXPIRES,
     // sendEmail: envVars.ENABLE_EMAILS,
     // sendGrid: {
     //   apiKey: envVars.SEND_GRID_API_KEY,
