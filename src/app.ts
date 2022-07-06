@@ -8,7 +8,7 @@ import * as openApiValidator from "express-openapi-validator";
 import swaggerDocument from "./swagger/spec.json";
 // import { makeLoggerMiddleware } from "./middlewares";
 import { config } from "./config";
-// import { logger } from "./services";
+import { logger } from "./services";
 // import router from "./router";
 
 const server = express();
@@ -20,8 +20,8 @@ server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // server.use(makeLoggerMiddleware(logger));
 
-// server.locals.logger = logger;
-// server.locals.config = config;
+server.locals.logger = logger;
+server.locals.config = config;
 
 server.use(
   openApiValidator.middleware({
@@ -36,13 +36,13 @@ export default async function app(
   port: number | string,
   host?: string
 ): Promise<Server> {
-  // logger.info(`Loading ${config.env} config`);
+  logger.info(`Loading ${config.env} config`);
 
   // await connectionMongo(logger);
 
   return server.listen(host ? { port, host } : port, () => {
-    // logger.info(
-    //   `Server started at port ${port}${host ? ` and host ${host}` : ""}`
-    // );
+    logger.info(
+      `Server started at port ${port}${host ? ` and host ${host}` : ""}`
+    );
   });
 }
