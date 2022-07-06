@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { Server } from "http";
-import { config } from "./src/helpers";
-import app from "./src";
+import { config } from "./src-backup/helpers";
+import app from "./src/app";
 
 const { port } = config;
 

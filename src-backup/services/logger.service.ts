@@ -1,5 +1,5 @@
 import { createLogger, format, transports, Logger } from "winston";
-import { config } from "../config";
+import { config } from "../helpers";
 
 let _logger: Logger;
 const { printf, timestamp, splat, combine } = format;
